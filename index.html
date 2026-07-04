@@ -3,436 +3,1092 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vital Sip | 100% Organic Juices & Wellness Shots</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        vitalGreen: '#329446',
-                        vitalDarkGreen: '#1b5226',
-                    }
-                }
-            }
-        }
-    </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>VITAL SIP | Wellness in every sip</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <style>
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+        :root {
+            --bg-cream: #f4f1ea;
+            --text-dark: #000000;
+            --text-muted: #666666;
+            --border-color: #e5e5e5;
+            --font-display: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: #ffffff;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            border: none;
+            background: none;
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        /* ANNOUNCEMENT BAR */
+        .announcement-bar {
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            padding: 8px 20px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+        }
+
+        /* NAVIGATION HEADER */
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 20px 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 26px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            text-align: center;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 25px;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .nav-icon-btn {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .cart-count {
+            font-weight: 600;
+            margin-left: 3px;
+        }
+
+        /* HERO BANNER ONE */
+        .hero-banner-one {
+            height: 85vh;
+            background: url('image01.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            padding: 0 80px;
+        }
+
+        .hero-content {
+            max-width: 500px;
+            color: #ffffff;
+        }
+
+        .hero-subtitle {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: 44px;
+            text-transform: uppercase;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            letter-spacing: -0.5px;
+        }
+
+        .btn-underline {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            border-bottom: 1px solid currentColor;
+            padding-bottom: 4px;
+            display: inline-block;
+        }
+
+        /* SECTION INTRO HEADER TEXT BLOCKS */
+        .section-header-block {
+            text-align: center;
+            padding: 80px 20px 40px;
+        }
+
+        .section-header-block p {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .section-header-block h2 {
+            font-family: var(--font-display);
+            font-size: 22px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* PRODUCT SECTIONS GRIDS */
+        .product-section-wrapper {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 40px 80px;
+        }
+
+        .product-grid-layout {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .product-item-card {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .product-image-frame {
+            background-color: #f7f7f7;
+            aspect-ratio: 1 / 1.2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image-placeholder {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-meta-name {
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .product-meta-price {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* RETAIL PARTNERS LOGO RIBBON */
+        .retail-partners-ribbon {
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 40px 40px;
+            text-align: center;
+        }
+
+        .retail-ribbon-title {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .retail-logos-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .retail-logo-text {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #000000;
+        }
+
+        /* HERO BANNER TWO ("HEALTH IS WEALTH") */
+        .hero-banner-two {
+            height: 75vh;
+            background: url('image06.jpg') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .hero-banner-two h2 {
+            font-family: var(--font-display);
+            font-size: 80px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -2px;
+            margin-bottom: 30px;
+            line-height: 0.9;
+        }
+
+        .btn-solid-white {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 12px 30px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+        }
+
+        /* ROOTED IN WELLNESS EDITORIAL LAYOUT */
+        .editorial-split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background-color: var(--bg-cream);
+        }
+
+        .editorial-graphic-side {
+            background: url('image11.jpg') center/cover no-repeat;
+            min-height: 600px;
+        }
+
+        .editorial-text-side {
+            padding: 100px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .editorial-subtitle {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .editorial-heading {
+            font-family: var(--font-display);
+            font-size: 32px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 30px;
+            letter-spacing: -0.5px;
+        }
+
+        .editorial-bullets-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .editorial-bullets-list li {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .editorial-paragraph-copy {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333333;
+            margin-bottom: 40px;
+            max-width: 480px;
+        }
+
+        /* INSTAGRAM VERTICAL VIDEO MATRIX */
+        .instagram-matrix-section {
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .instagram-matrix-heading {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .instagram-matrix-title {
+            font-family: var(--font-display);
+            font-size: 20px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .instagram-video-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .instagram-video-frame {
+            aspect-ratio: 9 / 16;
+            background-color: #f7f7f7;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+        }
+
+        /* PILLARS UTILITY HORIZONTAL BAR */
+        .value-pillars-bar {
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 30px 40px;
+        }
+
+        .value-pillars-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .value-pillar-node {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        /* RETAIL STOREFRONT FOOTER */
+        footer {
+            background-color: #ffffff;
+            padding: 80px 40px 40px;
+        }
+
+        .footer-columns-grid {
+            max-width: 1440px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 2fr;
+            gap: 80px;
+            margin-bottom: 80px;
+        }
+
+        .footer-column-block h4 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .footer-nav-menu {
+            list-style: none;
+        }
+
+        .footer-nav-menu li {
+            margin-bottom: 12px;
+            font-size: 13px;
+        }
+
+        .footer-nav-menu li a {
+            color: var(--text-muted);
+        }
+
+        .footer-nav-menu li a:hover {
+            color: var(--text-dark);
+        }
+
+        .footer-editorial-summary {
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--text-muted);
+            max-width: 500px;
+        }
+
+        .footer-bottom-baseline {
+            max-width: 1440px;
+            margin: 0 auto;
+            border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .credit-link {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* QUICK VIEW POPUP MODAL SCREEN */
+        .overlay-scrim {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 200;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .popup-modal-container {
+            background-color: #ffffff;
+            max-width: 800px;
+            width: 100%;
+            padding: 50px;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .popup-close-trigger {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 400;
+        }
+
+        .popup-split-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .popup-details-meta h3 {
+            font-family: var(--font-display);
+            font-size: 22px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .popup-details-price {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        .popup-details-body {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #444444;
+            margin-bottom: 25px;
+        }
+
+        .popup-specs-title {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .popup-specs-box {
+            font-size: 12px;
+            background-color: #f7f7f7;
+            padding: 15px;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+
+        .btn-solid-black {
+            background-color: #000000;
+            color: #ffffff;
+            width: 100%;
+            text-align: center;
+            padding: 15px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+        }
+
+        /* SHOPPING BAG DRAWER SLIDE OUT */
+        .shopping-bag-drawer {
+            position: fixed;
+            top: 0;
+            right: -450px;
+            width: 450px;
+            height: 100%;
+            background-color: #ffffff;
+            box-shadow: -10px 0 40px rgba(0,0,0,0.05);
+            z-index: 250;
+            transition: right 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+        }
+
+        .shopping-bag-drawer.is-visible {
+            right: 0;
+        }
+
+        .bag-drawer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+
+        .bag-drawer-header h3 {
+            font-family: var(--font-display);
+            font-size: 18px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .bag-items-scrollable {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .bag-line-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #f7f7f7;
+        }
+
+        .bag-line-item-info h5 {
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .bag-line-item-info p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .bag-line-item-remove {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #999999;
+            margin-top: 8px;
+            display: inline-block;
+            border-bottom: 1px solid transparent;
+        }
+
+        .bag-line-item-remove:hover {
+            color: #000000;
+            border-color: #000000;
+        }
+
+        .bag-drawer-footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 25px;
+        }
+
+        .bag-subtotal-row {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* MEDIA ADAPTATION LAYER */
+        @media (max-width: 1024px) {
+            .product-grid-layout { grid-template-columns: repeat(2, 1fr); }
+            .editorial-split-layout { grid-template-columns: 1fr; }
+            .editorial-graphic-side { min-height: 400px; }
+            .footer-columns-grid { grid-template-columns: 1fr 1fr; }
+            .footer-column-block:nth-child(3) { grid-column: span 2; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container { grid-template-columns: auto 1fr; padding: 20px; }
+            .nav-links { display: none; }
+            .hero-banner-one { padding: 0 30px; }
+            .hero-banner-two h2 { font-size: 48px; }
+            .instagram-video-grid { grid-template-columns: 1fr; max-width: 340px; }
+            .shopping-bag-drawer { width: 100%; right: -100%; }
+            .popup-split-details { grid-template-columns: 1fr; }
+            .footer-columns-grid { grid-template-columns: 1fr; }
+            .footer-column-block:nth-child(3) { grid-column: span 1; }
+        }
     </style>
 </head>
-<body class="bg-[#329446] text-white antialiased flex flex-col min-h-screen">
+<body>
 
-    <div class="bg-[#1b5226] text-white text-xs tracking-widest text-center py-2.5 px-4 font-semibold uppercase">
-        🌱 100% ORGANIC & FRESH FRUIT JUICES • FAST DELIVERY AVAILABLE! 🚚
+    <div class="announcement-bar">
+        Weekly deliveries
     </div>
 
-    <header class="bg-[#1b5226] border-b border-[#143d1c] sticky top-0 z-50 shadow-md">
-        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-            <div class="w-1/4 flex items-center space-x-2">
-                <div id="search-bar-container" class="hidden transition-all duration-300">
-                    <input type="text" id="search-input" placeholder="Search products..." class="px-3 py-1 rounded text-black text-sm focus:outline-none">
-                </div>
-                <button onclick="handleSearchToggle()" class="text-white hover:text-gray-200 transition text-2xl">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-            </div>
-
-            <div class="w-2/4 flex justify-center items-center space-x-4">
-                <span class="text-xl font-black tracking-widest uppercase">VITAL</span>
-                <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-white bg-white flex items-center justify-center shadow-sm">
-                    <img src="logo.jpg" alt="Logo" class="w-full h-full object-cover">
-                </div>
-                <span class="text-xl font-black tracking-widest uppercase">SIP</span>
-            </div>
-
-            <div class="w-1/4 flex justify-end">
-                <button onclick="toggleCartModal()" class="text-white hover:text-gray-200 transition relative flex items-center group">
-                    <i class="fa-solid fa-cart-shopping text-2xl"></i>
-                    <span id="cart-counter" class="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center shadow">0</span>
+    <header>
+        <div class="nav-container">
+            <nav class="nav-links">
+                <a href="#juices-catalog">Juices</a>
+                <a href="#shots-catalog">Shots</a>
+                <a href="#about-brand">About us</a>
+            </nav>
+            
+            <a href="#" class="logo">VITAL SIP</a>
+            
+            <div class="nav-icons">
+                <button class="nav-icon-btn">Search</button>
+                <button class="nav-icon-btn">Account</button>
+                <button class="nav-icon-btn" id="openBagTrigger">
+                    Cart (<span class="cart-count" id="globalBadgeTotal">0</span>)
                 </button>
             </div>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-6 py-10 flex-grow w-full">
-        <div class="space-y-12">
-            
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center bg-[#1b5226] rounded p-8 shadow-inner">
-                <div class="lg:col-span-3 text-center lg:text-left space-y-3">
-                    <h3 class="text-lg font-bold uppercase tracking-wide">100% Cold-Pressed</h3>
-                    <p class="text-xs text-gray-200 leading-relaxed">Pure vital extractions from organic elements, preserving premium enzymes for peak physiological response output without compromise.</p>
-                </div>
-                <div class="lg:col-span-6 flex justify-center">
-                    <img src="image02.png" alt="Vital Sip Hero Showcase" class="max-w-full h-[380px] object-cover rounded shadow-md border-4 border-white/20">
-                </div>
-                <div class="lg:col-span-3 text-center lg:text-right space-y-3">
-                    <h3 class="text-lg font-bold uppercase tracking-wide">Delivery Available</h3>
-                    <p class="text-xs text-gray-200 leading-relaxed">Direct fast transport infrastructure networks ensuring product integrity preserves cold logistics status directly to your residential doorstep.</p>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                <div class="lg:col-span-4 flex flex-col gap-6">
-                    <div class="bg-[#1b5226] rounded p-5 flex flex-col justify-between shadow border border-white/10">
-                        <div>
-                            <div class="overflow-hidden bg-white/5 rounded mb-3 aspect-square flex items-center justify-center">
-                                <img src="image03.jpg" alt="Product 3" class="h-40 object-contain">
-                            </div>
-                            <span class="text-[9px] text-gray-300 font-bold uppercase tracking-widest">100% Organic</span>
-                            <h3 class="font-bold text-base uppercase tracking-wide mt-0.5">Morning Greens Vitality</h3>
-                        </div>
-                        <div class="mt-4 flex items-center justify-between">
-                            <span class="text-lg font-black">R 45.00</span>
-                            <button onclick="addToCart('Morning Greens Vitality', 45.00)" class="bg-white text-[#1b5226] hover:bg-gray-100 text-[11px] uppercase font-bold tracking-wider px-3 py-2 rounded transition">
-                                Add To Cart
-                            </button>
-                        </div>
-                    </div>
-                    <div class="bg-[#1b5226] rounded p-5 flex flex-col justify-between shadow border border-white/10">
-                        <div>
-                            <div class="overflow-hidden bg-white/5 rounded mb-3 aspect-square flex items-center justify-center">
-                                <img src="image04.jpg" alt="Product 4" class="h-40 object-contain">
-                            </div>
-                            <span class="text-[9px] text-gray-300 font-bold uppercase tracking-widest">100% Organic</span>
-                            <h3 class="font-bold text-base uppercase tracking-wide mt-0.5">Heart Beet Cleanse</h3>
-                        </div>
-                        <div class="mt-4 flex items-center justify-between">
-                            <span class="text-lg font-black">R 45.00</span>
-                            <button onclick="addToCart('Heart Beet Cleanse', 45.00)" class="bg-white text-[#1b5226] hover:bg-gray-100 text-[11px] uppercase font-bold tracking-wider px-3 py-2 rounded transition">
-                                Add To Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="lg:col-span-8 bg-[#1b5226] rounded overflow-hidden shadow border border-white/10">
-                    <img src="image05.jpg" alt="Vital Organic Lifestyle" class="w-full h-full min-h-[350px] object-cover">
-                </div>
-            </div>
-
-            <div class="w-full bg-[#1b5226] rounded overflow-hidden shadow border border-white/10">
-                <img src="image06.jpg" alt="Organic Harvest Lineup" class="w-full h-36 object-cover">
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                <div class="lg:col-span-6 bg-[#1b5226] rounded overflow-hidden shadow border border-white/10">
-                    <img src="image07.jpg" alt="Cold Extraction Details" class="w-full h-full min-h-[300px] object-cover">
-                </div>
-                <div class="lg:col-span-3 bg-[#1b5226] rounded p-5 flex flex-col justify-between shadow border border-white/10">
-                    <div>
-                        <div class="overflow-hidden bg-white/5 rounded mb-3 aspect-square flex items-center justify-center">
-                            <img src="image08.jpg" alt="Product 8" class="h-44 object-contain">
-                        </div>
-                        <span class="text-[9px] text-gray-300 font-bold uppercase tracking-widest">100% Organic</span>
-                        <h3 class="font-bold text-base uppercase tracking-wide mt-0.5">Wahoo Citrus</h3>
-                    </div>
-                    <div class="mt-4 flex items-center justify-between">
-                        <span class="text-lg font-black">R 45.00</span>
-                        <button onclick="addToCart('Wahoo Citrus', 45.00)" class="bg-white text-[#1b5226] hover:bg-gray-100 text-[11px] uppercase font-bold tracking-wider px-3 py-2 rounded transition">
-                            Add To Cart
-                        </button>
-                    </div>
-                </div>
-                <div class="lg:col-span-3 bg-[#1b5226] rounded p-5 flex flex-col justify-between shadow border border-white/10">
-                    <div>
-                        <div class="overflow-hidden bg-white/5 rounded mb-3 aspect-square flex items-center justify-center">
-                            <img src="image09.jpg" alt="Product 9" class="h-44 object-contain">
-                        </div>
-                        <span class="text-[9px] text-gray-300 font-bold uppercase tracking-widest">Wellness Shot</span>
-                        <h3 class="font-bold text-base uppercase tracking-wide mt-0.5">Gold Ginger Shot</h3>
-                    </div>
-                    <div class="mt-4 flex items-center justify-between">
-                        <span class="text-lg font-black">R 35.00</span>
-                        <button onclick="addToCart('Gold Ginger Shot', 35.00)" class="bg-white text-[#1b5226] hover:bg-gray-100 text-[11px] uppercase font-bold tracking-wider px-3 py-2 rounded transition">
-                            Add To Cart
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-[#1b5226] rounded overflow-hidden shadow border border-white/10 h-72 md:h-auto">
-                    <img src="image10.jpg" alt="Production Display View" class="w-full h-full object-cover">
-                </div>
-                <div class="bg-[#1b5226] rounded overflow-hidden shadow border border-white/10 flex flex-col justify-between">
-                    <div class="relative bg-black flex-grow h-56 md:h-64">
-                        <video class="w-full h-full object-cover" id="vital-video-player" controls playsinline muted loop>
-                            <source src="video01.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="p-3 bg-[#143d1c] text-center">
-                        <p class="text-[10px] uppercase font-bold tracking-widest text-gray-300">Live Process Demonstration</p>
-                    </div>
-                </div>
-                <div class="bg-[#1b5226] rounded overflow-hidden shadow border border-white/10 h-72 md:h-auto">
-                    <img src="image11.jpg" alt="Organic Selection View" class="w-full h-full object-cover">
-                </div>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="bg-[#1b5226] rounded p-4 flex flex-col justify-between shadow border border-white/10">
-                    <div>
-                        <div class="overflow-hidden bg-white/5 rounded mb-3 aspect-square flex items-center justify-center">
-                            <img src="image12.jpg" alt="Product 12" class="h-36 object-contain">
-                        </div>
-                        <h4 class="font-bold text-xs uppercase tracking-wide">Morning Sunrise</h4>
-                    </div>
-                    <div class="mt-3 flex items-center justify-between">
-                        <span class="text-sm font-bold">R 45.00</span>
-                        <button onclick="addToCart('Morning Sunrise', 45.00)" class="bg-white text-[#1b5226] hover:bg-gray-100 text-[10px] uppercase font-bold px-2 py-1.5 rounded transition">
-                            + Cart
-                        </button>
-                    </div>
-                </div>
-                <div class="bg-[#1b5226] rounded p-4 flex flex-col justify-between shadow border border-white/10">
-                    <div>
-                        <div class="overflow-hidden bg-white/5 rounded mb-3 aspect-square flex items-center justify-center">
-                            <img src="image13.jpg" alt="Product 13" class="h-36 object-contain">
-                        </div>
-                        <h4 class="font-bold text-xs uppercase tracking-wide">Fiery Shot</h4>
-                    </div>
-                    <div class="mt-3 flex items-center justify-between">
-                        <span class="text-sm font-bold">R 35.00</span>
-                        <button onclick="addToCart('Fiery Shot', 35.00)" class="bg-white text-[#1b5226] hover:bg-gray-100 text-[10px] uppercase font-bold px-2 py-1.5 rounded transition">
-                            + Cart
-                        </button>
-                    </div>
-                </div>
-                <div class="bg-[#1b5226] rounded p-4 flex flex-col justify-between shadow border border-white/10">
-                    <div>
-                        <div class="overflow-hidden bg-white/5 rounded mb-3 aspect-square flex items-center justify-center">
-                            <img src="image14.jpg" alt="Product 14" class="h-36 object-contain">
-                        </div>
-                        <h4 class="font-bold text-xs uppercase tracking-wide">Beloved Apple</h4>
-                    </div>
-                    <div class="mt-3 flex items-center justify-between">
-                        <span class="text-sm font-bold">R 45.00</span>
-                        <button onclick="addToCart('Beloved Apple', 45.00)" class="bg-white text-[#1b5226] hover:bg-gray-100 text-[10px] uppercase font-bold px-2 py-1.5 rounded transition">
-                            + Cart
-                        </button>
-                    </div>
-                </div>
-                <div class="bg-[#1b5226] rounded p-4 flex flex-col justify-between shadow border border-white/10">
-                    <div>
-                        <div class="overflow-hidden bg-white/5 rounded mb-3 aspect-square flex items-center justify-center">
-                            <img src="image15.jpg" alt="Product 15" class="h-36 object-contain">
-                        </div>
-                        <h4 class="font-bold text-xs uppercase tracking-wide">Pick Your Pack</h4>
-                    </div>
-                    <div class="mt-3 flex items-center justify-between">
-                        <span class="text-sm font-bold">R 70.00</span>
-                        <button onclick="addToCart('Pick Your Pack', 70.00)" class="bg-white text-[#1b5226] hover:bg-gray-100 text-[10px] uppercase font-bold px-2 py-1.5 rounded transition">
-                            + Cart
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#1b5226] rounded p-6 shadow border border-white/10">
-                <div class="lg:col-span-6 overflow-hidden rounded">
-                    <img src="image16.jpg" alt="Complete Lineup Display" class="w-full h-64 object-cover">
-                </div>
-                <div class="lg:col-span-6 space-y-4">
-                    <h3 class="text-xl font-bold uppercase tracking-wider">LET'S MAKE YOU FEEL GOOD</h3>
-                    <p class="text-xs text-gray-200 leading-relaxed text-justify">
-                        Our cold pressed juices and health wellness shots are formulated strictly from fresh fruit and veggies, never from concentrate. We reject standard pasteurization, artificial processing, and chemical modification protocols to preserve pure native enzymatic properties.
-                    </p>
-                    <p class="text-[11px] uppercase tracking-widest font-bold text-yellow-400">
-                        🌱 100% Organic Ingredients • Fast Delivery Channels Operational
-                    </p>
-                </div>
-            </div>
-
+    <section class="hero-banner-one">
+        <div class="hero-content">
+            <p class="hero-subtitle">YOUR DAILY RITUAL UPGRADED</p>
+            <h1 class="hero-title">DRINK WITH PURPOSE</h1>
+            <a href="#juices-catalog" class="btn-underline">Shop All</a>
         </div>
-    </main>
+    </section>
 
-    <div id="cart-modal" class="fixed inset-0 bg-black/60 z-50 hidden transition-opacity flex justify-end">
-        <div class="w-full max-w-md bg-white text-gray-800 h-full shadow-2xl flex flex-col justify-between p-6 overflow-y-auto">
-            <div>
-                <div class="flex items-center justify-between border-b pb-4 mb-4">
-                    <h3 class="text-lg font-bold uppercase tracking-wide text-gray-800"><i class="fa-solid fa-basket-shopping text-[#329446] mr-2"></i> Your Basket</h3>
-                    <button onclick="toggleCartModal()" class="text-gray-400 hover:text-gray-600 text-xl"><i class="fa-solid fa-xmark"></i></button>
-                </div>
-                <div id="cart-items-container" class="space-y-4">
-                    <p class="text-gray-400 text-sm italic text-center py-8">Your cart is currently empty.</p>
-                </div>
-            </div>
+    <div class="section-header-block" id="juices-catalog">
+        <p>PLANT-POWERED · 100% NATURAL</p>
+        <h2>FUNCTIONAL NUTRITION WITH REAL RESULTS</h2>
+    </div>
 
-            <div class="border-t pt-4 mt-6">
-                <div class="flex justify-between items-center mb-6">
-                    <span class="text-sm font-bold uppercase text-gray-500">Cart Total:</span>
-                    <span id="cart-total-display" class="text-xl font-black text-[#1b5226]">R 0.00</span>
-                </div>
-                
-                <form id="checkout-form" onsubmit="handleCheckoutSubmit(event)" class="space-y-3.5">
-                    <div>
-                        <label class="block text-[11px] uppercase tracking-wider font-bold text-gray-500 mb-1">Full Name *</label>
-                        <input type="text" id="cust-name" required class="w-full border border-gray-200 rounded px-3 py-2 text-sm focus:outline-none focus:border-[#329446]">
-                    </div>
-                    <div>
-                        <label class="block text-[11px] uppercase tracking-wider font-bold text-gray-500 mb-1">Delivery Address *</label>
-                        <textarea id="cust-address" rows="2" required class="w-full border border-gray-200 rounded px-3 py-2 text-sm focus:outline-none focus:border-[#329446]"></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-[#329446] hover:bg-[#1b5226] text-white font-bold uppercase text-xs tracking-widest py-3.5 rounded transition mt-2 shadow flex items-center justify-center space-x-2">
-                        <i class="fa-brands fa-whatsapp text-base"></i> <span>Submit Order via WhatsApp</span>
-                    </button>
-                </form>
+    <section class="product-section-wrapper">
+        <div class="product-grid-layout" id="functionalJuicesGrid">
             </div>
+    </section>
+
+    <div class="retail-partners-ribbon">
+        <p class="retail-ribbon-title">FIND US WHERE YOUR DAY HAPPENS. 150+ LOCATIONS</p>
+        <div class="retail-logos-flex">
+            <span class="retail-logo-text">Caracas</span>
+            <span class="retail-logo-text">Plum Market</span>
+            <span class="retail-logo-text">Ideal Nutrition</span>
+            <span class="retail-logo-text">Le Pain Quotidien</span>
+            <span class="retail-logo-text">Bianca &amp; Noire</span>
+            <span class="retail-logo-text">The Colony</span>
         </div>
     </div>
 
-    <footer class="bg-[#1b5226] border-t border-[#143d1c] text-xs text-gray-300 mt-12">
-        <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-                <h5 class="font-bold uppercase tracking-wider text-white mb-3">About Vital Sip</h5>
-                <p class="leading-relaxed text-justify text-gray-200">
-                    USDA Certified Organic and Non-GMO project verified infrastructure designed to deliver pure cold-pressed botanical extractions directly to community destination nodes.
-                </p>
+    <section class="hero-banner-two">
+        <h2>HEALTH IS WEALTH</h2>
+        <a href="#shots-catalog" class="btn-solid-white">Shop All</a>
+    </section>
+
+    <div class="section-header-block" id="shots-catalog">
+        <p>EXPLORE OUR WELLNESS SHOTS</p>
+        <h2>DAILY HEALTH SHOTS MENU</h2>
+    </div>
+
+    <section class="product-section-wrapper">
+        <div class="product-grid-layout" id="wellnessShotsGrid">
             </div>
-            <div class="md:pl-12">
-                <h5 class="font-bold uppercase tracking-wider text-white mb-3">Logistics Channels</h5>
-                <ul class="space-y-2 text-gray-200">
-                    <li>📍 Delivery Available Daily</li>
-                    <li>🌿 100% Organically Sourced</li>
-                    <li>💼 Wholesale Procurement Active</li>
-                </ul>
-            </div>
+    </section>
+
+    <section class="editorial-split-layout" id="about-brand">
+        <div class="editorial-graphic-side"></div>
+        <div class="editorial-text-side">
+            <p class="editorial-subtitle">BORN IN JHB</p>
+            <h2 class="editorial-heading">ROOTED IN WELLNESS</h2>
+            <ul class="editorial-bullets-list">
+                <li>NO ADDED SUGARS</li>
+                <li>NO ADDITIVES</li>
+                <li>NO COMPROMISES</li>
+            </ul>
+            <p class="editorial-paragraph-copy">
+                Vital Sip is a boutique, cold-pressed wellness juice and health shot company based locally in Johannesburg, South Africa. The brand focuses on natural, functional beverages built around three core pillars: Glow, Detox, and Immunity. All products are marketed as 100% Natural and are homemade/small-batch, with direct delivery available across Johannesburg to give your body absolute health.
+            </p>
             <div>
-                <h5 class="font-bold uppercase tracking-wider text-white mb-3">Social Indexes</h5>
-                <div class="flex space-x-4 text-xl mt-2">
-                    <a href="https://www.instagram.com/vitalsip__/" target="_blank" class="text-gray-300 hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://wa.me/27688853042" target="_blank" class="text-gray-300 hover:text-white transition"><i class="fa-brands fa-whatsapp"></i></a>
-                </div>
+                <a href="#juices-catalog" class="btn-underline">Shop Menu</a>
             </div>
         </div>
+    </section>
 
-        <div class="border-t border-[#143d1c] py-6 text-center text-gray-400 text-[11px]">
-            <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between space-y-2 sm:space-y-0">
-                <p>&copy; 2026 Vital Sip Inc. All Rights Reserved.</p>
-                <p>
-                    <a href="https://palexdigital.pages.dev/" target="_blank" class="hover:text-white font-semibold transition tracking-wide">
-                        Developed By paléXdigital
-                    </a>
+    <section class="instagram-matrix-section">
+        <p class="instagram-matrix-heading">@VITALSIP__</p>
+        <h2 class="instagram-matrix-title">REAL STORIES. REAL RECOMMENDATIONS!</h2>
+        <div class="instagram-video-grid">
+            <video class="instagram-video-frame" src="video01.mp4" loop muted autoplay playsinline></video>
+            <video class="instagram-video-frame" src="video02.mp4" loop muted autoplay playsinline></video>
+            <video class="instagram-video-frame" src="video03.mp4" loop muted autoplay playsinline></video>
+        </div>
+    </section>
+
+    <div class="value-pillars-bar">
+        <div class="value-pillars-container">
+            <div class="value-pillar-node">NO ADDED SUGAR</div>
+            <div class="value-pillar-node">ONLY CLEAN INGREDIENTS</div>
+            <div class="value-pillar-node">AVAILABLE IN CAFES, GYMS &amp; WELLNESS PLACES</div>
+            <div class="value-pillar-node">JOHANNESBURG WELLNESS</div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-columns-grid">
+            <div class="footer-column-block">
+                <h4>PRODUCTS</h4>
+                <ul class="footer-nav-menu">
+                    <li><a href="#juices-catalog">Daily Functional Juice</a></li>
+                    <li><a href="#shots-catalog">Wellness Health Shots</a></li>
+                    <li><a href="#juices-catalog">Clean Elixirs</a></li>
+                    <li><a href="#juices-catalog">Shop All</a></li>
+                </ul>
+            </div>
+            <div class="footer-column-block">
+                <h4>INFO</h4>
+                <ul class="footer-nav-menu">
+                    <li><a href="#about-brand">About Vital Sip</a></li>
+                    <li><a href="#">Find Us Locally</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Terms and conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-column-block">
+                <h4>ABOUT VITAL SIP</h4>
+                <p class="footer-editorial-summary">
+                    Born out of a desire to unlock genuine daily wellness in every sip, Vital Sip delivers meticulously curated small-batch, homemade cold-pressed juices and performance shots direct to you across Johannesburg. Driven by love for community, we omit added sugars, artificial colors, or compromises.
                 </p>
             </div>
+        </div>
+        <div class="footer-bottom-baseline">
+            <span>© 2026 VITAL SIP. ALL RIGHTS RESERVED.</span>
+            <a href="https://palexdigital.pages.dev/" target="_blank" class="credit-link">Developed By paléXdigital</a>
         </div>
     </footer>
 
+    <div class="overlay-scrim" id="globalProductModal">
+        <div class="popup-modal-container">
+            <button class="popup-close-trigger" id="closeModalTrigger">Close</button>
+            <div id="modalInjectedTarget">
+                </div>
+        </div>
+    </div>
+
+    <div class="shopping-bag-drawer" id="sideBagDrawer">
+        <div class="bag-drawer-header">
+            <h3>YOUR CART</h3>
+            <button style="font-size:12px; text-transform:uppercase;" id="closeBagTrigger">Close</button>
+        </div>
+        <div class="bag-items-scrollable" id="bagItemsViewport">
+            </div>
+        <div class="bag-drawer-footer">
+            <div class="bag-subtotal-row">
+                <span>Subtotal</span>
+                <span id="bagTotalTargetAmount">R0.00</span>
+            </div>
+            <button class="btn-solid-black" onclick="alert('Proceeding to integrated checkout framework...')">Secure Checkout</button>
+        </div>
+    </div>
+
     <script>
-        let cart = [];
-        const WHATSAPP_NUMBER = "27688853042";
-
-        function handleSearchToggle() {
-            const container = document.getElementById('search-bar-container');
-            container.classList.toggle('hidden');
-            if(!container.classList.contains('hidden')) {
-                document.getElementById('search-input').focus();
+        // ARCHIVE DATA STORES MATRIX
+        const APP_DATA_ITEMS = [
+            {
+                id: "item-j1",
+                name: "Glow Skin Blend",
+                catalog: "juice",
+                price: 330,
+                priceText: "R330 (pack of 2)",
+                image: "image02.jpg",
+                ingredients: "Premium functional skin-focused wellness greens blend.",
+                benefits: "Nourishes the skin canvas natively, hydrates cellular barriers, and acts as a daily functional beauty tonic."
+            },
+            {
+                id: "item-j2",
+                name: "Energy & Hormone Balance Juice",
+                catalog: "juice",
+                price: 180,
+                priceText: "R180",
+                image: "image03.jpg",
+                ingredients: "Pure cold-pressed proprietary formulation (dark red/purple botanical liquid extract).",
+                benefits: "Targets systemic energetic pathways and natural hormonal synchronization."
+            },
+            {
+                id: "item-j3",
+                name: "Citrus Cleanse",
+                catalog: "juice",
+                price: 120,
+                priceText: "R120",
+                image: "image04.jpg",
+                ingredients: "Orange, lemon, grapefruit, and key trace botanicals.",
+                benefits: "Accelerates toxic compound clearance while enhancing natural vitamin reserves."
+            },
+            {
+                id: "item-j4",
+                name: "Detox Green Juice",
+                catalog: "juice",
+                price: 140,
+                priceText: "R140",
+                image: "image05.jpg",
+                ingredients: "Spinach, cucumber, celery, green apple, and raw herbs.",
+                benefits: "Alkalizes standard physiological balance and promotes vascular clarity."
+            },
+            {
+                id: "item-s1",
+                name: "Belly Fat Burner Shot",
+                catalog: "shot",
+                price: 180,
+                priceText: "R180",
+                image: "image07.jpg",
+                ingredients: "Orange, turmeric, lemon, ginger, spinach.",
+                benefits: "Supports digestion, reduces bloating, assists with fat-burning (combined with healthy lifestyle), boosts metabolism and energy levels. Shake well before use; take 1 shot (30–60ml) daily in the morning or any time during the day."
+            },
+            {
+                id: "item-s2",
+                name: "Gut Reset Shot",
+                catalog: "shot",
+                price: 165,
+                priceText: "R165 (pack of 4)",
+                image: "image08.jpg",
+                ingredients: "Pineapple, mint, ginger.",
+                benefits: "Supports digestion, reduces bloating, promotes gut wellness, helps eliminate digestive system toxins."
+            },
+            {
+                id: "item-s3",
+                name: "Beet Detox Shot",
+                catalog: "shot",
+                price: 150,
+                priceText: "R150",
+                image: "image09.jpg",
+                ingredients: "Beetroot, apple, ginger.",
+                benefits: "Boosts energy naturally, helps balance hormones, supports overall wellness, detoxifies the body, leaves you refreshed, revived, and energized."
+            },
+            {
+                id: "item-s4",
+                name: "Immune System Booster Shot",
+                catalog: "shot",
+                price: 260,
+                priceText: "R260 (pack of 12)",
+                image: "image10.jpg",
+                ingredients: "Orange, turmeric, ginger, black pepper.",
+                benefits: "Packed with vitamins and antioxidants; supports the immune system; helps fight off infections; supports the body during cold season. Shake well before use; take 1 shot (30–60ml) daily in the morning or any time during the day. Keep refrigerated; consume within 3–7 days of opening."
             }
+        ];
+
+        // ENGINE INVENTORY APP VARIABLES
+        let activeUserBag = [];
+
+        // CACHED SYSTEM NODE LINK REFERENCES
+        const functionalJuicesGrid = document.getElementById('functionalJuicesGrid');
+        const wellnessShotsGrid = document.getElementById('wellnessShotsGrid');
+        const globalProductModal = document.getElementById('globalProductModal');
+        const modalInjectedTarget = document.getElementById('modalInjectedTarget');
+        const closeModalTrigger = document.getElementById('closeModalTrigger');
+        const sideBagDrawer = document.getElementById('sideBagDrawer');
+        const openBagTrigger = document.getElementById('openBagTrigger');
+        const closeBagTrigger = document.getElementById('closeBagTrigger');
+        const bagItemsViewport = document.getElementById('bagItemsViewport');
+        const bagTotalTargetAmount = document.getElementById('bagTotalTargetAmount');
+        const globalBadgeTotal = document.getElementById('globalBadgeTotal');
+
+        // INITIALIZER BOOTSTRAP MODULE
+        function bootstrapStorefront() {
+            renderDynamicGrids();
+            registerSystemListeners();
         }
 
-        // Initialize inline event parsing for search field execution
-        document.getElementById('search-input').addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                const query = this.value.trim();
-                if(query) {
-                    alert('Searching index files for: ' + query);
-                }
-            }
-        });
+        // DOM GRID ASSEMBLY ARCHITECTURE
+        function renderDynamicGrids() {
+            functionalJuicesGrid.innerHTML = "";
+            wellnessShotsGrid.innerHTML = "";
 
-        function toggleCartModal() {
-            const modal = document.getElementById('cart-modal');
-            modal.classList.toggle('hidden');
-        }
-
-        function addToCart(itemName, itemPrice) {
-            const existingItem = cart.find(item => item.name === itemName);
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                cart.push({ name: itemName, price: itemPrice, quantity: 1 });
-            }
-            updateCartDOM();
-            document.getElementById('cart-modal').classList.remove('hidden');
-        }
-
-        function removeFromCart(itemName) {
-            cart = cart.filter(item => item.name !== itemName);
-            updateCartDOM();
-        }
-
-        function updateCartDOM() {
-            const itemsContainer = document.getElementById('cart-items-container');
-            const counter = document.getElementById('cart-counter');
-            const totalDisplay = document.getElementById('cart-total-display');
-            
-            const totalCount = cart.reduce((acc, current) => acc + current.quantity, 0);
-            counter.innerText = totalCount;
-
-            if (cart.length === 0) {
-                itemsContainer.innerHTML = '<p class="text-gray-400 text-sm italic text-center py-8">Your cart is currently empty.</p>';
-                totalDisplay.innerText = "R 0.00";
-                return;
-            }
-
-            let htmlPayload = '';
-            let orderTotal = 0;
-
-            cart.forEach(item => {
-                const rowCost = item.price * item.quantity;
-                orderTotal += rowCost;
-                
-                htmlPayload += `
-                    <div class="flex items-center justify-between border-b border-gray-100 pb-3">
-                        <div>
-                            <h4 class="font-bold text-xs text-gray-800 uppercase">${item.name}</h4>
-                            <p class="text-[11px] text-gray-400 font-medium mt-0.5">R ${item.price.toFixed(2)} × ${item.quantity}</p>
+            APP_DATA_ITEMS.forEach(element => {
+                const elementCardMarkup = `
+                    <div class="product-item-card" onclick="triggerQuickView('${element.id}')">
+                        <div class="product-image-frame">
+                            <img class="product-image-placeholder" src="${element.image}" alt="${element.name}" />
                         </div>
-                        <div class="flex items-center space-x-3">
-                            <span class="text-xs font-bold text-[#1b5226]">R ${rowCost.toFixed(2)}</span>
-                            <button onclick="removeFromCart('${item.name}')" class="text-gray-300 hover:text-red-500 text-sm transition"><i class="fa-solid fa-trash-can"></i></button>
+                        <h3 class="product-meta-name">${element.name}</h3>
+                        <p class="product-meta-price">${element.priceText}</p>
+                    </div>
+                `;
+
+                if (element.catalog === "juice") {
+                    functionalJuicesGrid.insertAdjacentHTML('beforeend', elementCardMarkup);
+                } else {
+                    wellnessShotsGrid.insertAdjacentHTML('beforeend', elementCardMarkup);
+                }
+            });
+        }
+
+        // QUICK VIEW MODAL TRIGGER CONTROL
+        window.triggerQuickView = function(elementId) {
+            const currentObj = APP_DATA_ITEMS.find(node => node.id === elementId);
+            if (!currentObj) return;
+
+            modalInjectedTarget.innerHTML = `
+                <div class="popup-split-details">
+                    <div style="background-color:#f7f7f7; display:flex; align-items:center; justify-content:center; padding:20px;">
+                        <img src="${currentObj.image}" style="width:100%; height:auto; max-height:400px; object-fit:contain;" />
+                    </div>
+                    <div class="popup-details-meta">
+                        <h3>${currentObj.name}</h3>
+                        <div class="popup-details-price">${currentObj.priceText}</div>
+                        <p class="popup-details-body">${currentObj.benefits}</p>
+                        
+                        <div class="popup-specs-title">Ingredients</div>
+                        <div class="popup-specs-box">${currentObj.ingredients}</div>
+                        
+                        <button class="btn-solid-black" onclick="pushToBag('${currentObj.id}'); hideQuickViewModal();">
+                            Add to bag
+                        </button>
+                    </div>
+                </div>
+            `;
+            toggleModalDisplay(true);
+        };
+
+        function toggleModalDisplay(visible) {
+            globalProductModal.style.display = visible ? "flex" : "none";
+        }
+
+        function hideQuickViewModal() {
+            toggleModalDisplay(false);
+        }
+
+        // ACTION METHODS FOR SHOPPING BAG
+        window.pushToBag = function(elementId) {
+            const matchedAsset = APP_DATA_ITEMS.find(node => node.id === elementId);
+            if (!matchedAsset) return;
+
+            const duplicateEntry = activeUserBag.find(item => item.product.id === elementId);
+
+            if (duplicateEntry) {
+                duplicateEntry.units += 1;
+            } else {
+                activeUserBag.push({ product: matchedAsset, units: 1 });
+            }
+
+            refreshBagUIContent();
+            toggleBagDrawerDisplay(true);
+        };
+
+        window.pullFromBag = function(elementId) {
+            activeUserBag = activeUserBag.filter(item => item.product.id !== elementId);
+            refreshBagUIContent();
+        };
+
+        function refreshBagUIContent() {
+            bagItemsViewport.innerHTML = "";
+            let grossAmount = 0;
+            let currentUnitLoadCount = 0;
+
+            activeUserBag.forEach(nodeInstance => {
+                grossAmount += (nodeInstance.product.price * nodeInstance.units);
+                currentUnitLoadCount += nodeInstance.units;
+
+                const computationalLineItemMarkup = `
+                    <div class="bag-line-item">
+                        <div class="bag-line-item-info">
+                            <h5>${nodeInstance.product.name}</h5>
+                            <p>${nodeInstance.units} × R${nodeInstance.product.price}</p>
+                            <button class="bag-line-item-remove" onclick="pullFromBag('${nodeInstance.product.id}')">Remove</button>
+                        </div>
+                        <div style="font-weight:600; font-size:12px;">
+                            R${nodeInstance.product.price * nodeInstance.units}
                         </div>
                     </div>
                 `;
+                bagItemsViewport.insertAdjacentHTML('beforeend', computationalLineItemMarkup);
             });
 
-            itemsContainer.innerHTML = htmlPayload;
-            totalDisplay.innerText = `R ${orderTotal.toFixed(2)}`;
+            bagTotalTargetAmount.innerText = `R${grossAmount.toFixed(2)}`;
+            globalBadgeTotal.innerText = currentUnitLoadCount;
         }
 
-        function handleCheckoutSubmit(event) {
-            event.preventDefault();
-            
-            if (cart.length === 0) {
-                alert("Your shopping cart is empty!");
-                return;
+        function toggleBagDrawerDisplay(openState) {
+            if (openState) {
+                sideBagDrawer.classList.add('is-visible');
+            } else {
+                sideBagDrawer.classList.remove('is-visible');
             }
-
-            const name = document.getElementById('cust-name').value.trim();
-            const address = document.getElementById('cust-address').value.trim();
-
-            let itemSummary = '';
-            let ultimateTotal = 0;
-            
-            cart.forEach((item, index) => {
-                const cost = item.price * item.quantity;
-                ultimateTotal += cost;
-                itemSummary += `${index + 1}. ${item.name} [Qty: ${item.quantity}] - R ${cost.toFixed(2)}\n`;
-            });
-
-            const messageText = `*NEW VITAL SIP ORDER REQUEST*\n\n` +
-                                `*Customer Details:*\n` +
-                                `• Name: ${name}\n` +
-                                `• Delivery Address: ${address}\n\n` +
-                                `*Ordered Selections:*\n${itemSummary}\n` +
-                                `*Total Order Value:* R ${ultimateTotal.toFixed(2)}\n\n` +
-                                `_100% Organic Verified Production Route._`;
-
-            const targetUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(messageText)}`;
-            window.open(targetUrl, '_blank');
         }
-    </script>
 
+        // GLOBAL APPLICATION EVENT CAPTURING MANAGEMENT
+        function registerSystemListeners() {
+            openBagTrigger.addEventListener('click', () => toggleBagDrawerDisplay(true));
+            closeBagTrigger.addEventListener('click', () => toggleBagDrawerDisplay(false));
+            closeModalTrigger.addEventListener('click', hideQuickViewModal);
+            
+            globalProductModal.addEventListener('click', (e) => {
+                if (e.target === globalProductModal) hideQuickViewModal();
+            });
+        }
+
+        // TRIGGER APPLICATION
+        document.addEventListener("DOMContentLoaded", bootstrapStorefront);
+    </script>
 </body>
 </html>
